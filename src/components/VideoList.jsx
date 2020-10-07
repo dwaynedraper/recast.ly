@@ -1,6 +1,6 @@
-var VideoList = () => (
+var VideoList = (props) => (
   <div className="video-list">
-    {window.exampleVideoData.map((video, index) => (
+    {props.videos.map((video, index) => (
       <VideoListEntry video={video} key={'video' + index} />
     ))}
   </div>
@@ -14,5 +14,5 @@ VideoList.propTypes = {
 
 // In the ES6 spec, files are "modules" and do not share a top-level scope.
 // `var` declarations will only exist globally where explicitly defined.
-// export default VideoList;
+export default VideoList;
 window.VideoList = VideoList;
