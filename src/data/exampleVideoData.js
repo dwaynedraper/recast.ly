@@ -164,3 +164,4 @@ var exampleVideoData = [{
 }];
 
 export default exampleVideoData;
+window.exampleVideoData = exampleVideoData;
