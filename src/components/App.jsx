@@ -18,6 +18,14 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      //videolist
+      currentVideo: window.exampleVideoData[0]
+    };
+  }
+  changeCurrentVideo (video) {
+    console.log(video);
+    this.setState({currentVideo: video});
   }
   render () {
     return (
@@ -29,10 +37,11 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <div><VideoPlayer videos={window.exampleVideoData} /></div>
+            <div><VideoPlayer video={this.state.currentVideo} /></div>
           </div>
           <div className="col-md-5">
-            <div><VideoList videos={window.exampleVideoData}/></div>
+            // pass in state as props
+            <div><VideoList changeCurrentVideo={this.changeCurrentVideo.bind(this)} videos={window.exampleVideoData} /></div>
           </div>
         </div>
       </div>
