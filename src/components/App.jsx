@@ -1,20 +1,3 @@
-// var App = (props) => (
-//   <div>
-//     <nav className="navbar">
-//       <div className="col-md-6 offset-md-3">
-//         <div><h5><em>search</em> view goes here</h5></div>
-//       </div>
-//     </nav>
-//     <div className="row">
-//       <div className="col-md-7">
-//         <div><h5><em>videoPlayer</em> view goes here</h5></div>
-//       </div>
-//       <div className="col-md-5">
-//         <div><VideoList videos={window.exampleVideoData}/></div>
-//       </div>
-//     </div>
-//   </div>
-// );
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -40,7 +23,7 @@ class App extends React.Component {
             <div><VideoPlayer video={this.state.currentVideo} /></div>
           </div>
           <div className="col-md-5">
-            // pass in state as props
+            // pass in state as props, make sure to bind this
             <div><VideoList changeCurrentVideo={this.changeCurrentVideo.bind(this)} videos={window.exampleVideoData} /></div>
           </div>
         </div>

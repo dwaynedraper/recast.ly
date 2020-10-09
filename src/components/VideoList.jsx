@@ -2,6 +2,7 @@ var VideoList = (props) => (
 
   <div className="video-list">
     {props.videos.map((video, index) => (
+      //pass in state as props, use props.stateBeingPassed this time
       <VideoListEntry changeCurrentVideo={props.changeCurrentVideo} video={video} key={'video' + index} />
     ))}
   </div>
