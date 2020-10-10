@@ -1,9 +1,11 @@
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoList: window.initialize,
-      currentVideo: window.initialize[0]
+      videoList: [],
+      currentVideo: null
     };
   }
   changeCurrentVideo (video) {
@@ -20,7 +22,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     let options = {query: 'react', max: 5, key: YOUTUBE_API_KEY};
-    window.searchYouTube(options, this.loadYouTubeVideo.bind(this));
+    this.props.searchYouTube(options, this.loadYouTubeVideo.bind(this));
   }
   render () {
     return (
