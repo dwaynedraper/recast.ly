@@ -1,4 +1,4 @@
-var searchYouTube = ({query, max = 5, key = YOUTUBE_API_KEY}, callback) => {
+var searchYouTube = ({query = 'react', max = 5, key = YOUTUBE_API_KEY}, callback) => {
   // TODO
   $.get('https://www.googleapis.com/youtube/v3/search', {
     part: 'snippet', //this is necessary in all YouTube API calls

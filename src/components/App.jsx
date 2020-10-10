@@ -2,13 +2,25 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //videolist
-      currentVideo: window.exampleVideoData[0]
+      videoList: window.initialize,
+      currentVideo: window.initialize[0]
     };
   }
   changeCurrentVideo (video) {
     console.log(video);
-    this.setState({currentVideo: video});
+    this.setState({
+      currentVideo: video,
+    });
+  }
+  loadYouTubeVideo(data) {
+    this.setState({
+      currentVideo: data[0],
+      videoList: data
+    });
+  }
+  componentDidMount() {
+    let options = {query: 'react', max: 5, key: YOUTUBE_API_KEY};
+    window.searchYouTube(options, this.loadYouTubeVideo.bind(this));
   }
   render () {
     return (
@@ -24,7 +36,7 @@ class App extends React.Component {
           </div>
           <div className="col-md-5">
             // pass in state as props, make sure to bind this
-            <div><VideoList changeCurrentVideo={this.changeCurrentVideo.bind(this)} videos={window.exampleVideoData} /></div>
+            <div><VideoList changeCurrentVideo={this.changeCurrentVideo.bind(this)} videos={this.state.videoList} /></div>
           </div>
         </div>
       </div>
