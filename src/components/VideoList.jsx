@@ -1,9 +1,4 @@
 var VideoList = (props) => {
-  if (props.videos.length === 0) {
-    return (
-      <p>Loading</p>
-    );
-  }
   return (
     <div className="video-list">
       {props.videos.map((video, index) => (

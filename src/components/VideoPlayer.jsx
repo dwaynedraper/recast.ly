@@ -1,11 +1,5 @@
 var VideoPlayer = (props) => {
-  if (!props.video) {
-    return (
-      <div className="video-player">Loading</div>
-    );
-  }
   return (
-
     <div className="video-player">
           console.log(props)
       <div className="embed-responsive embed-responsive-16by9">

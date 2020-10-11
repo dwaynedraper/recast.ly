@@ -4,8 +4,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoList: [],
-      currentVideo: null
+      videoList: window.exampleVideoData,
+      currentVideo: window.exampleVideoData[0]
     };
   }
   changeCurrentVideo (video) {
@@ -25,24 +25,38 @@ class App extends React.Component {
     this.props.searchYouTube(options, this.loadYouTubeVideo.bind(this));
   }
   render () {
-    return (
-      <div>
-        <nav className="navbar">
-          <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> view goes here</h5></div>
-          </div>
-        </nav>
-        <div className="row">
-          <div className="col-md-7">
-            <div><VideoPlayer video={this.state.currentVideo} /></div>
-          </div>
-          <div className="col-md-5">
-            // pass in state as props, make sure to bind this
-            <div><VideoList changeCurrentVideo={this.changeCurrentVideo.bind(this)} videos={this.state.videoList} /></div>
+    if (this.state.currentVideo === null) {
+      console.log('test for null working');
+      return (
+        <div>
+          <nav className="navbar">
+            <div className="col-md-6 offset-md-3">
+              <div><Search changeCurrentVideo={this.changeCurrentVideo.bind(this)} /></div>
+            </div>
+          </nav>
+          <div className="row">
+            <div className="col-md-7">
+              <div>Loading</div>
+            </div>
+            <div className="col-md-5">
+              // pass in state as props, make sure to bind this
+              <div>Loading</div>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div>
+          <nav className="navbar">
+            <div className="col-md-6 offset-md-3">
+              <div><h5><em>search</em> view goes here</h5></div>
+            </div>
+          </nav>
+
+        </div>
+      );
+    }
   }
 }
 

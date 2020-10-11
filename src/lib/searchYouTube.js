@@ -10,10 +10,11 @@ var searchYouTube = ({query = 'react', max = 5, key = YOUTUBE_API_KEY}, callback
   }).done(function(array) {
     console.log('array:', array);
     callback(array.items);
+  }).fail(({responseJSON}) => {
+    responseJSON.error.errors.forEach((err) => console.error(err));
   });
 };
 
-export default searchYouTube;
 window.searchYouTube = searchYouTube;
 
 
